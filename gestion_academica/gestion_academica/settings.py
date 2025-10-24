@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
     #LOCAL APPS
     'apps.cursada'
+    'apps.profesor',
+    'apps.preguntas_respuestas',
 ]
 
 MIDDLEWARE = [
