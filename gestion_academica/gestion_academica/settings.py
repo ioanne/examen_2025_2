@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    #LOCAL APPS
+    'apps.cursada'
     'apps.profesor',
     'apps.preguntas_respuestas',
 ]
