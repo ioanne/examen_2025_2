@@ -1,8 +1,9 @@
 from django.db import models
+from apps.examenes.models import Examen
 
 # Create your models here.
 class Pregunta(models.Model):
-    examen = models.ForeignKey('examenes.Examen', on_delete=models.CASCADE, related_name='preguntas')
+    examen = models.ForeignKey(Examen, on_delete=models.CASCADE, related_name='preguntas')
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     titulo = models.CharField(max_length=200)
     descripcion = models.TextField(blank=True)
