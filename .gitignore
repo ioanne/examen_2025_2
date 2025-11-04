@@ -209,3 +209,6 @@ __marimo__/
 # Ignore migration files (e.g., Django migrations)
     /migrations/[0-9].py
     */migrations/pycache/
+# Ignorar archivos de migraciones en todas las apps
+**/migrations/*
+!**/migrations/__init__.py
