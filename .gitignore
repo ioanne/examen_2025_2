@@ -205,3 +205,7 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Ignore migration files (e.g., Django migrations)
+    /migrations/[0-9].py
+    */migrations/pycache/
