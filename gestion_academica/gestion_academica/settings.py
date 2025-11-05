@@ -40,7 +40,7 @@ INSTALLED_APPS = [
 
     #LOCAL APPS
     'apps.alumno',
-    'apps.cursada'
+    'apps.cursada',
     'apps.profesor',
     'apps.preguntas_respuestas',
 ]

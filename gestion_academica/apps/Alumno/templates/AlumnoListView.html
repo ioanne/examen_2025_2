@@ -1,4 +1,86 @@
-<h2>{{ alumno.nombre }} {{ alumno.apellido }}</h2>
-<p><b>Email:</b> {{ alumno.email }}</p>
-<p><b>Legajo:</b> {{ alumno.legajo }}</p>
-<a href="{% url 'lista_alumnos' %}">Volver</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alumnos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5dc; /* color hueso */
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 40px;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+        }
+
+        .nombre {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .dato {
+            margin: 4px 0;
+            font-size: 1em;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Alumnos</h1>
+
+    <div class="grid">
+        {% for alumno in alumnos %}
+            <div class="card">
+                <div class="nombre">{{ alumno.nombre }} {{ alumno.apellido }}</div>
+                <div class="dato"><b>Email:</b> {{ alumno.email }}</div>
+                <div class="dato"><b>Legajo:</b> {{ alumno.legajo }}</div>
+                <a href="{% url 'detalle_alumno' alumno.id %}">Ver Detalle</a>
+            </div>
+        {% empty %}
+            <p>No hay alumnos registrados.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
+

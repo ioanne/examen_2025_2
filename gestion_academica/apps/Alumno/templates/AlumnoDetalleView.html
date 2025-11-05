@@ -1,10 +1,59 @@
-<h1>Lista de Alumnos</h1>
-<ul>
-  {% for alumno in alumnos %}
-    <li>
-      <a href="{% url 'detalle_alumno' alumno.id %}">
-        {{ alumno.nombre }} {{ alumno.apellido }}
-      </a>
-    </li>
-  {% endfor %}
-</ul>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Alumno</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5dc;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin: 8px 0;
+            font-size: 1.1em;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>{{ alumno.nombre }} {{ alumno.apellido }}</h2>
+        <p><b>Email:</b> {{ alumno.email }}</p>
+        <p><b>Legajo:</b> {{ alumno.legajo }}</p>
+        <a href="{% url 'lista_alumnos' %}">Volver</a>
+    </div>
+</body>
+</html>
+
